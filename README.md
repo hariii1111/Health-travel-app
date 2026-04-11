@@ -249,4 +249,23 @@
 Figma：https://www.figma.com/design/9mkg2gxB8ubFdEEkTQooPk/%E8%AA%B2%E9%A1%8C%EF%BC%92%E3%80%80%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&p=f&t=F5fPjGoALUHplN73-0
 
 ## 14. ER図
-ER図（Gyazo）: https://gyazo.com/90183f67ea16af1c02fb2e94770ba139
+
+本アプリケーションのデータ構造を示すER図です。  
+ユーザー、運動記録（exercises）、キャラクター（characters）、旅行記録（travels）の関係を整理しています。
+
+- users ⇔ characters：1対1（user_id に unique 制約）
+- users ⇔ exercises：1対多（1ユーザーが複数の運動記録を持つ）
+- users ⇔ travels：1..1（travels は必ず1ユーザーに紐づく）
+- travels と characters / exercises は直接関連しません
+
+`activity_type` は enum 管理で以下のパターンを想定しています：
+- 0 : walking  
+- 1 : running  
+- 2 : cycling  
+- 3 : swimming  
+- 4 : hiking  
+- 5 : yoga  
+
+※ total_distance は exercises.distance の累計
+
+![ER図](https://i.gyazo.com/b22e6a37a0f97cc636e61e0dd9272b95.png)
