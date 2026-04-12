@@ -251,21 +251,4 @@ Figma：https://www.figma.com/design/9mkg2gxB8ubFdEEkTQooPk/%E8%AA%B2%E9%A1%8C%E
 ## 14. ER図
 
 本アプリケーションのデータ構造を示すER図です。  
-ユーザー、運動記録（exercises）、キャラクター（characters）、旅行記録（travels）の関係を整理しています。
-
-- users ⇔ characters：1対1（user_id に unique 制約）
-- users ⇔ exercises：1対多（1ユーザーが複数の運動記録を持つ）
-- users ⇔ travels：1..1（travels は必ず1ユーザーに紐づく）
-- travels と characters / exercises は直接関連しません
-
-`activity_type` は enum 管理で以下のパターンを想定しています：
-- 0 : walking  
-- 1 : running  
-- 2 : cycling  
-- 3 : swimming  
-- 4 : hiking  
-- 5 : yoga  
-
-※ total_distance は exercises.distance の累計
-
-![ER図](https://i.gyazo.com/b22e6a37a0f97cc636e61e0dd9272b95.png)
+![image](https://i.gyazo.com/fa05cff7ce1dbf2e715dc685d26265cd.png)
